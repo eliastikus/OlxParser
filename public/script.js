@@ -1,7 +1,8 @@
 function applyFilter() {
     const loader = document.querySelector('.loader');
     const table = document.querySelector('#listings-table');
-    const selectedCategory = document.getElementById('category-dropdown').value;
+    const selectedOption = document.getElementById('category-dropdown').options[document.getElementById('category-dropdown').selectedIndex];
+    const selectedCategory = selectedOption.dataset.urlending;
     const minPrice = parseFloat(document.getElementById('min-price').value);
     const maxPrice = parseFloat(document.getElementById('max-price').value);
 
