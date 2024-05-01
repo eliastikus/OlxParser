@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Listings</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Aggregate Used GPUs from OLX.pl</h2>
+        <select id="category-dropdown">
+            <option value="">Select GPU</option>
+            <option value="nvidia-rtx-3060">NVIDIA RTX 3060</option>
+            <option value="nvidia-rtx-3070">NVIDIA RTX 3070</option>
+            <option value="nvidia-rtx-3070-ti">NVIDIA RTX 3070 Ti</option>
+            <option value="nvidia-rtx-3070-ti">NVIDIA RTX 3070 Ti</option>
+
+            <option value="6500XT">Radeon 6500XT</option>
+            <option value="RX-6600">Radeon RX 6600</option>
+            <option value="6600XT">Radeon 6600XT</option>
+            <option value="RX-6650XT">Radeon RX 6650XT</option>
+            <option value="6700XT">Radeon 6700XT</option>
+            
+        </select>
+
+        <div>
+            <label for="min-price">Min Price:</label>
+            <input type="number" id="min-price" min="0" step="1">
+            <label for="max-price">Max Price:</label>
+            <input type="number" id="max-price" min="0" step="1">
+            <button id="apply-filter">Apply Filter</button>
+        </div>
+
+        <div class="loader"></div>
+
+        <table id="listings-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>

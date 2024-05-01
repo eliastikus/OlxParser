@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px; 
+}
+
+#category-dropdown {
+    font-size: 1em; 
+    margin-bottom: 20px; 
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.city {
+    white-space: nowrap;
+}
+
+.loader {
+    display: none;
+    width: 100px;
+    height: 100px;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
