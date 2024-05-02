@@ -42,9 +42,18 @@ function displayListing(item, minPrice, maxPrice, tbody) {
     if (!isNaN(priceValue) && (isNaN(minPrice) || priceValue >= minPrice) && (isNaN(maxPrice) || priceValue <= maxPrice)) {
         const price = priceParts.replace('zł', 'zł  ');
         const tr = document.createElement('tr');
-        tr.innerHTML = '<td>' + item.title + '</td>' +
-            '<td>' + price + '</td>' +
-            '<td class="city">' + city + '</td>';
+        
+        const link = document.createElement('a');
+        link.textContent = item.title;
+        link.href = item.url;
+
+        const tdTitle = document.createElement('td');
+        tdTitle.appendChild(link);
+        tr.appendChild(tdTitle);
+
+        tr.innerHTML += '<td>' + price + '</td>' +
+                        '<td class="city">' + city + '</td>';
+        
         tbody.appendChild(tr);
     }
 }
