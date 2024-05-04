@@ -18,15 +18,21 @@ app.get('/listings', async (req, res) => {
         return res.status(400).send('No link provided');
     }
 
-    const totalPages = 2; 
+    let totalPages = 2;
+    let currentPage = 1;
 
     try {
         let allListings = [];
 
-        for (let i = 1; i <= totalPages; i++) {
-            const response = await axios.get(`${link}?page=${i}`);
+        while (currentPage <= totalPages) {
+            const response = await axios.get(`${link}?page=${currentPage}`);
             const html = response.data;
             const $ = cheerio.load(html);
+
+            if ($('.css-pyu9k9').length > 0) {
+                totalPages++;
+            }
+
             const listings = [];
 
             $('.css-1sw7q4x').each((index, element) => {
@@ -45,6 +51,7 @@ app.get('/listings', async (req, res) => {
             });
 
             allListings = allListings.concat(listings);
+            currentPage++;
         }
 
         res.json(allListings);
