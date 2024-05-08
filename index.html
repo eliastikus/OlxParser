@@ -1,53 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Listings</title>
-</head>
-<body>
-    <div class="container">
-        <h2>Aggregate Used GPUs from OLX.pl</h2>
-        <select id="category-dropdown">
-            <option data-urlEnding="">Select GPU</option>
-            <option data-urlEnding="nvidia-rtx-3060">NVIDIA RTX 3060</option>
-            <option data-urlEnding="nvidia-rtx-3070">NVIDIA RTX 3070</option>
-            <option data-urlEnding="nvidia-rtx-3060-ti">NVIDIA RTX 3060 Ti</option>
-            <option data-urlEnding="nvidia-rtx-3070-ti">NVIDIA RTX 3070 Ti</option>
 
-            <option data-urlEnding="6500XT">Radeon 6500XT</option>
-            <option data-urlEnding="6700XT">Radeon 6700XT</option>
-            <option data-urlEnding="RX-6600">Radeon RX 6600</option>
-            <option data-urlEnding="RX-6650XT">Radeon RX 6650XT</option>
-            <option data-urlEnding="6600XT">Radeon 6600XT</option>
-            
-            
-        </select>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Briem+Hand&display=swap"
+            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap"
+            rel="stylesheet">
 
-        <div>
-            <label for="min-price">Min Price:</label>
-            <input type="number" id="min-price" min="0" step="1">
-            <label for="max-price">Max Price:</label>
-            <input type="number" id="max-price" min="0" step="1">
-            <button id="apply-filter">Apply Filter</button>
+
+
+        <link rel="stylesheet" href="/style.css">
+        <title>Listings</title>
+    </head>
+
+    <body>
+        <h1><span id="handwriting">Aggregate</span> Used <span id="gpu-impact">GPUs</span> from
+            OLX.pl</h1>
+
+        <div class="container">
+
+            <div class="sidebar">
+                <img src="assets/gpu_select.png" alt="GPU Select" id="gpu-img">
+                <select id="category-dropdown" class="dropdown">
+                    <!-- NVIDIA GPUs -->
+                    <option value="">Select GPU</option>
+                    <option value="3050" data-urlEnding="nvidia-rtx-3050">NVIDIA RTX 3050
+                    </option>
+                    <option value="3060" data-urlEnding="nvidia-rtx-3060">NVIDIA RTX 3060
+                    </option>
+                    <option value="3060 Ti" data-urlEnding="nvidia-rtx-3060-ti">NVIDIA RTX 3060
+                        Ti
+                    </option>
+                    <option value="3070" data-urlEnding="nvidia-rtx-3070">NVIDIA RTX 3070
+                    </option>
+                    <option value="3070 Ti" data-urlEnding="nvidia-rtx-3070-ti">NVIDIA RTX 3070
+                        Ti
+                    </option>
+
+                    <!-- AMD GPUs -->
+                    <option value="6500 XT" data-urlEnding="radeon-6500-xt">Radeon RX 6500 XT
+                    </option>
+                    <option value="6600" data-urlEnding="radeon-rx-6600">Radeon RX 6600
+                    </option>
+                    <option value="6600 XT" data-urlEnding="radeon-6600-xt">Radeon RX 6600 XT
+                    </option>
+                    <option value="6650 XT" data-urlEnding="radeon-rx-6650-xt">Radeon RX 6650
+                        XT
+                    </option>
+                    <option value="6700 XT" data-urlEnding="radeon-6700-xt">Radeon RX 6700 XT
+                    </option>
+                    <option value="6750 XT" data-urlEnding="radeon-6750-xt">Radeon RX 6750 XT
+                    </option>
+                </select>
+                <div class="">
+                    <label for="filter-results">Some results are incorrect?</label>
+                    <button id="filter-results" class="button">Remove Irrelevant
+                        Results</button>
+                </div>
+
+                <div class="price-filters">
+                    <label for="min-price">Min Price:</label>
+                    <input type="number" id="min-price" class="input" min="0" step="1">
+                    <label for="max-price">Max Price:</label>
+                    <input type="number" id="max-price" class="input" min="0" step="1">
+                    <button id="apply-filter" class="button">Apply Filter</button>
+
+                </div>
+            </div>
+            <div class="main">
+                <div class="loader">
+                    <img src="assets/loader.gif" alt="">
+                </div>
+                <table id="listings-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table data -->
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <script src="/script.js"></script>
+    </body>
 
-        <div class="loader"></div>
-
-        <table id="listings-table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>City</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </div>
-    <script src="/script.js"></script>
-</body>
 </html>

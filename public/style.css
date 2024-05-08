@@ -1,62 +1,242 @@
-body {
+* {
+    box-sizing: border-box; /* Ensure padding and borders are included in the width/height calculations */
+  }
+  
+  body {
     margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.container {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74f8f2 0%, #1296a4 100%) fixed no-repeat center center / cover;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px; 
-}
-
-#category-dropdown {
-    font-size: 1em; 
-    margin-bottom: 20px; 
-}
-
-table {
-    border-collapse: collapse;
     width: 100%;
-    margin-bottom: 20px; 
-}
-
-th, td {
-    border: 1px solid #dddddd;
+    padding: 16px;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background-color: #eeeeee;
+    border: 1px solid rgb(190, 190, 190);
+    box-shadow: inset 0 0 6px rgba(190, 190, 190, 0.3);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #bebebe;
+  }
+  
+  h1 #handwriting {
+    font-family: 'Briem Hand', cursive;
+    line-height: 100%;
+    animation: revealFromLeft 1s ease-out forwards; /* Animate the handwriting text */
+  }
+  
+  h1 #gpu-impact {
+    display: inline-block;
+    transform: scale(0);
+    font-family: 'Bungee Spice', sans-serif;
+    animation: bounceScale 1.5s ease-in-out 1s forwards;
+    will-change: transform;
+  }
+  
+  @keyframes revealFromLeft {
+    from {
+      clip-path: inset(0 100% 0 0); /* Crop from the left */
+      opacity: 0;
+    }
+    to {
+      clip-path: inset(0 0 0 0); /* Fully reveal */
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounceScale {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2); /* Bounce effect */
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .container {
+    width: 100%; /* Full width */
+  }
+  
+  .sidebar {
+    width: 320px; /* Fixed width for the sidebar */
+    box-sizing: border-box; /* Include padding in width calculation */
+    position: fixed;
+    top: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .sidebar img {
+    height: 240px;
+    width: 100%;
+    border-radius: 12px;
+    backdrop-filter: blur(4px); /* Glassmorphism effect */
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+  }
+  
+  .dropdown {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    font-size: 20px;
+    backdrop-filter: blur(4px); /* Glassmorphism effect */
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .price-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 16px;
+  }
+  
+  .input,
+  .button {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    border: none;
+    background-color: white; /* No glass effect here */
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .input:focus,
+  .dropdown:focus {
+    outline: none;
+  }
+  
+  .input:focus {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  button {
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 18px;
+    background-color: #e9e9ef;
+    margin: auto;
+    border: 0;
+    transition: box-shadow 150ms ease-out, transform 150ms ease-out;
+    cursor: pointer;
+    will-change: transform;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 -2px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+    transform: scale(0.98);
+  }
+  
+  button:active {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-color: #e5e5ef;
+  }
+  
+  .main {
+    flex-grow: 1; /* Let the main content area take up the rest of the space */
+    overflow-x: visible;
+    margin-left: 340px;
+  }
+  
+  table {
+    width: 100%;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8.5px); /* Glassmorphism effect */
     text-align: left;
-    padding: 8px;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-.city {
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  th,
+  td {
+    padding: 12px;
+  }
+  
+  tr {
+    height: 24px;
+    border: none; /* Temporarily remove border for testing */
+  }
+  
+  .rainbow {
+    font-weight: bolder;
+    font-size: 1.5rem;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .price {
+    font-weight: bold;
+  }
+  
+  .city {
     white-space: nowrap;
-}
-
-.loader {
+  }
+  
+  .loader {
     display: none;
-    width: 100px;
-    height: 100px;
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-
-a {
-    text-decoration: none; 
-    color: inherit; 
-}
-
-a:hover {
-    text-decoration: underline; 
-}
+    width: 100%;
+    height: 320px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .loader img {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .filtered-out {
+    overflow: hidden;
+    animation: fadeOutAndCollapse 3s ease forwards;
+  }
+  
+  @keyframes fadeOutAndCollapse {
+    0% {
+      background-color: initial;
+      opacity: 1;
+      max-height: 24px; /* Initial max-height, make sure it's enough */
+    }
+    50% {
+      background-color: red;
+      opacity: 0.5;
+      max-height: 0px;
+    }
+    99% {
+      opacity: 0;
+    }
+    100% {
+      background-color: initial;
+      display: none;
+    }
+  }
+  
