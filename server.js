@@ -2,12 +2,12 @@ const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const path = require('path');
-const querystring = require('querystring'); // Using the native querystring module
+const querystring = require('querystring'); 
 
 const app = express();
 const port = 3001;
 
-app.use(express.static('public')); // It's better to place static middleware outside of any specific route to apply it globally
+app.use(express.static('public')); 
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
